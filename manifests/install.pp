@@ -22,7 +22,7 @@ class dotdeb::install {
         unless  => 'apt-key list | grep dotdeb',
         require => File['/etc/apt/sources.list.d/dotdeb.list'],
         notify  => Exec['update-apt'];
-    }
+    } -> anchor { 'dotdeb::install::end': }
 
     exec {
         'update-apt':
