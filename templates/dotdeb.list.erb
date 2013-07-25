@@ -2,13 +2,17 @@
 
 <% case lsbdistcodename
     when 'squeeze' %>
+    deb http://packages.dotdeb.org squeeze all
+    deb-src http://packages.dotdeb.org squeeze all
+
+    <% when 'wheezy' %>
     deb http://packages.dotdeb.org stable all
     deb-src http://packages.dotdeb.org stable all
-    
+
     <% when 'lenny' %>
     deb http://packages.dotdeb.org oldstable all
     deb-src http://packages.dotdeb.org oldstable all
-    
+
     <% if $dotdeb::lenny_php53 %>
     deb http://php53.dotdeb.org oldstable all
     deb-src http://php53.dotdeb.org oldstable all

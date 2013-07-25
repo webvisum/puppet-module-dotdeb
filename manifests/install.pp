@@ -11,7 +11,8 @@ class dotdeb::install {
         owner   => 'root',
         group   => 'root',
         mode    => '0600',
-        content => template('dotdeb/dotdeb.list.erb')
+        content => template('dotdeb/dotdeb.list.erb'),
+        notify => Exec['update-apt'],
     }
 
     exec {
